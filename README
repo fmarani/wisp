@@ -1,0 +1,14 @@
+WISP
+----
+
+An attempt to implement OStatus specs in Scala:
+
+OStatus consists in the following protocols:
+* WebFinger - implemented
+* PortableContacts - basic infrastructure is there
+* Activity Streams
+* PubSubHubBub
+* Atom
+* Salmon
+
+Released under LGPLv3
