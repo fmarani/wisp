@@ -8,7 +8,7 @@ abstract class WebFingerTranslator {
 	def apply(url: String): Map[String, Any]
 }
 
-object PortableContactsTranslator extends WebFingerTranslator {
+class PortableContactsTranslator extends WebFingerTranslator {
 	override val NAMESPACES = List("http://portablecontacts.net/spec/1.0#me")
 
 	protected def retrieve(url: String) = io.Source.fromURL(url).mkString
@@ -16,7 +16,9 @@ object PortableContactsTranslator extends WebFingerTranslator {
 	override def apply(url: String) = {
 		val payload = retrieve(url)
 		val untypedMap = JSON.parseFull(payload).getOrElse(Map()).asInstanceOf[Map[String,Any]]
-		Map("name" -> untypedMap("displayName"))
+		val entryMap = untypedMap("entry").asInstanceOf[Map[String,Any]]
+		val name = entryMap("displayName").asInstanceOf[String]
+		Map("name" -> name)
 	}
 }
 

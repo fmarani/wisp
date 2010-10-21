@@ -3,6 +3,7 @@ package org.flagzeta
 import java.net._
 import scala.xml._
 import scala.collection.mutable.ListBuffer
+import org.flagzeta._
 
 class WebFinger(private val email: Email) {
 	private val translators = new ListBuffer[WebFingerTranslator]()
@@ -40,6 +41,7 @@ class WebFinger(private val email: Email) {
 object WebFingerMain {
 	def main(args: Array[String]) {
 		val wf = new WebFinger(new Email("flagzeta@gmail.com"))
+		wf.addTranslator(new PortableContactsTranslator)
 		val services = wf.translateServices
 		services foreach (println(_))
 	}
