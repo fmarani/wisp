@@ -1,7 +1,7 @@
-package org.flagzeta
+package org.flagzeta.wisp
 
 import org.specs._
-import org.flagzeta._
+import org.flagzeta.wisp._
 
 class WebFingerSpec extends Specification {
 	class WebFingerMock extends WebFinger {

@@ -1,4 +1,4 @@
-package org.flagzeta
+package org.flagzeta.wisp
 
 import org.restlet.{Client,Component,Restlet};
 import org.restlet.data._

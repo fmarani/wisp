@@ -1,4 +1,4 @@
-package org.flagzeta
+package org.flagzeta.wisp
 
 import scala.util.parsing.json._
 

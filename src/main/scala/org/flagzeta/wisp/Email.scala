@@ -1,4 +1,4 @@
-package org.flagzeta
+package org.flagzeta.wisp
 
 class Email(val address: String) {
 	val user = address.split("@")(0)

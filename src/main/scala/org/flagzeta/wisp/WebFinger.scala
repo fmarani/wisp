@@ -1,4 +1,4 @@
-package org.flagzeta
+package org.flagzeta.wisp
 
 import java.net._
 import scala.xml._
