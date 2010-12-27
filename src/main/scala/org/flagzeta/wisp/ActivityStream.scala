@@ -2,13 +2,13 @@ package org.flagzeta.wisp
 
 import scala.xml._
 
-sealed abstract case class ActivitySubject(val displayName: String)
+sealed abstract class ActivitySubject(val displayName: String)
 case class Person(override val displayName: String) extends ActivitySubject(displayName)
 object Person {
 	val ns = "http://activitystrea.ms/schema/1.0/person"
 }
 
-sealed abstract case class ActivityVerb(val displayName: String)
+sealed abstract class ActivityVerb(val displayName: String)
 case object Post extends ActivityVerb("posted") {
 	val ns = "http://activitystrea.ms/schema/1.0/post"
 }
@@ -26,7 +26,7 @@ case object Meet extends ActivityVerb("met") {
 }
 
 
-sealed abstract case class ActivityObject(val title: String)
+sealed abstract class ActivityObject(val title: String)
 case class Note(override val title: String) extends ActivityObject(title)
 object Note {
 	val ns = "http://activitystrea.ms/schema/1.0/note"

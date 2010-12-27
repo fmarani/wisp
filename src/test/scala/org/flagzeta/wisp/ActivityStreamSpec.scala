@@ -60,7 +60,7 @@ class ActivityStreamSpec extends Specification with DataTables {
 		Seq(new Activity(Post, new Note("gotta love these functional languages"), new ActivityTarget("target")),
 			new Activity(Post, new Note("struggling with time difference"), new ActivityTarget("target"))))
 
-	"activitystream feed processor returns correct results" in {
+	"activitystream feed processor returns correct results for a set of samples" in {
 		"input feeds"		| "results"		|>
 		identicaFeedExtract	! identicaExpResult	| { (inxml: Elem, result: ActivityStream) =>
 			val processor = new ActivityStreamFeedProcessor
