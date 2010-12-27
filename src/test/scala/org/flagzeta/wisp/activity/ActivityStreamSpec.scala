@@ -1,10 +1,8 @@
-package org.flagzeta.wisp
+package org.flagzeta.wisp.activity
 
 import scala.xml._
 import org.specs._
 import org.specs.util.DataTables
-
-import org.flagzeta.wisp._
 
 class ActivityStreamSpec extends Specification with DataTables {
 	val identicaFeedExtract = <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:georss="http://www.georss.org/georss" xmlns:activity="http://activitystrea.ms/spec/1.0/" xmlns:media="http://purl.org/syndication/atommedia" xmlns:poco="http://portablecontacts.net/spec/1.0" xmlns:ostatus="http://ostatus.org/schema/1.0" xmlns:statusnet="http://status.net/schema/api/1/">
@@ -56,9 +54,9 @@ class ActivityStreamSpec extends Specification with DataTables {
 							</feed>
 							
 	val identicaExpResult = new ActivityStream(
-		new Person("Federico Marani"),
-		Seq(new Activity(Post, new Note("gotta love these functional languages"), new ActivityTarget("target")),
-			new Activity(Post, new Note("struggling with time difference"), new ActivityTarget("target"))))
+		Person("Federico Marani"),
+		Seq(Activity(Post, Note("gotta love these functional languages"), new ActivityTarget("target")),
+			Activity(Post, Note("struggling with time difference"), new ActivityTarget("target"))))
 
 	"activitystream feed processor returns correct results for a set of samples" in {
 		"input feeds"		| "results"		|>
